@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Manish - Software Engineer Portfolio. Java, React.js, JavaScript, SQL and Web Development.">
+
+    <title>Manish | Software Engineer</title>
+
+    <style>
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #070b14;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        /* =========================
+           BACKGROUND
+        ========================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: #5b4cff;
+            border-radius: 50%;
+            filter: blur(180px);
+            opacity: 0.12;
+            top: -200px;
+            left: -200px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 450px;
+            height: 450px;
+            background: #00c6ff;
+            border-radius: 50%;
+            filter: blur(180px);
+            opacity: 0.08;
+            right: -200px;
+            bottom: -150px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 999;
+
+            background: rgba(7, 11, 20, 0.82);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        nav {
+            height: 75px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: #7468ff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #a9b0c0;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #8075ff;
+        }
+
+        .menu {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: white;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        #home {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            padding-top: 100px;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .small-title {
+            color: #8176ff;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 9vw, 100px);
+            line-height: 0.95;
+            letter-spacing: -5px;
+            margin-bottom: 15px;
+        }
+
+        .hero h2 {
+            color: #c5cad6;
+            font-size: clamp(25px, 4vw, 43px);
+            margin-bottom: 20px;
+        }
+
+        .hero h2 span {
+            color: #786cff;
+        }
+
+        .hero-description {
+            color: #9299aa;
+            max-width: 600px;
+            font-size: 17px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 35px;
+        }
+
+        .btn {
+            padding: 13px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #7569ff, #594cff);
+            box-shadow: 0 10px 30px rgba(91, 76, 255, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(91, 76, 255, 0.4);
+        }
+
+        .btn-secondary {
+            border: 1px solid #303747;
+            color: #c6cbd5;
+        }
+
+        .btn-secondary:hover {
+            border-color: #7569ff;
+            color: #8176ff;
+        }
+
+        /* =========================
+           CODE WINDOW
+        ========================= */
+
+        .code-window {
+            background: #0e1420;
+            border: 1px solid #252d3d;
+            border-radius: 16px;
+            overflow: hidden;
+
+            box-shadow:
+                0 30px 70px rgba(0, 0, 0, 0.4),
+                0 0 60px rgba(91, 76, 255, 0.08);
+
+            transform: rotate(2deg);
+            transition: 0.4s;
+        }
+
+        .code-window:hover {
+            transform: rotate(0deg) translateY(-7px);
+        }
+
+        .window-header {
+            height: 42px;
+            background: #151b28;
+
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding-left: 15px;
+        }
+
+        .dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+        }
+
+        .red {
+            background: #ff5f57;
+        }
+
+        .yellow {
+            background: #febc2e;
+        }
+
+        .green-dot {
+            background: #28c840;
+        }
+
+        .code {
+            padding: 30px;
+
+            font-family: Consolas, monospace;
+            font-size: 14px;
+            color: #abb2bf;
+        }
+
+        .code p {
+            margin: 8px 0;
+        }
+
+        .indent {
+            padding-left: 25px;
+        }
+
+        .indent2 {
+            padding-left: 50px;
+        }
+
+        .purple {
+            color: #c678dd;
+        }
+
+        .blue {
+            color: #61afef;
+        }
+
+        .green-text {
+            color: #98c379;
+        }
+
+        .orange {
+            color: #d19a66;
+        }
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        section {
+            padding: 110px 0;
+        }
+
+        .section-heading {
+            margin-bottom: 55px;
+        }
+
+        .section-heading p {
+            color: #766aff;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .section-heading h2 {
+            font-size: 42px;
+            margin-top: 5px;
+        }
+
+        .section-heading h2 span {
+            color: #786cff;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #9299aa;
+            margin-bottom: 17px;
+        }
+
+        .about-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .about-card {
+            background: rgba(16, 21, 33, 0.85);
+            border: 1px solid #252d3d;
+            border-radius: 13px;
+            padding: 25px;
+
+            transition: 0.3s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            border-color: #6357ff;
+        }
+
+        .about-icon {
+            font-size: 25px;
+            margin-bottom: 12px;
+        }
+
+        .about-card h4 {
+            margin-bottom: 5px;
+        }
+
+        .about-card p {
+            color: #7e8798;
+            font-size: 12px;
+        }
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        #skills {
+            background: rgba(12, 17, 28, 0.65);
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .skill {
+            padding: 25px 20px;
+            background: #101622;
+            border: 1px solid #252d3d;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-6px);
+            border-color: #685cff;
+        }
+
+        .skill-icon {
+            width: 48px;
+            height: 48px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 10px;
+            background: rgba(105, 91, 255, 0.12);
+
+            color: #867bff;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .skill h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .skill p {
+            color: #7d8697;
+            font-size: 12px;
+        }
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .projects {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .project {
+            position: relative;
+            overflow: hidden;
+
+            min-height: 330px;
+
+            background: #101622;
+            border: 1px solid #252d3d;
+            border-radius: 15px;
+
+            padding: 35px;
+
+            transition: 0.35s;
+        }
+
+        .project:hover {
+            transform: translateY(-7px);
+            border-color: #6559ff;
+        }
+
+        .project-number {
+            font-size: 45px;
+            font-weight: 800;
+            color: #252c3a;
+        }
+
+        .project-type {
+            color: #786cff;
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-top: 10px;
+        }
+
+        .project h3 {
+            font-size: 25px;
+            margin: 7px 0 12px;
+        }
+
+        .project-description {
+            color: #858e9f;
+            font-size: 13px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: 20px;
+        }
+
+        .tag {
+            padding: 5px 10px;
+
+            background: #191f2b;
+            border: 1px solid #2b3342;
+            border-radius: 5px;
+
+            color: #adb4c1;
+            font-size: 10px;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        #contact {
+            background: rgba(12, 17, 28, 0.6);
+        }
+
+        .contact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+        }
+
+        .contact h3 {
+            font-size: 29px;
+            margin-bottom: 15px;
+        }
+
+        .contact p {
+            color: #8992a2;
+            margin-bottom: 15px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            padding: 17px;
+
+            background: #101622;
+            border: 1px solid #252d3d;
+            border-radius: 10px;
+
+            transition: 0.3s;
+        }
+
+        .contact-link:hover {
+            transform: translateX(5px);
+            border-color: #695dff;
+        }
+
+        .contact-icon {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(105, 91, 255, 0.12);
+            color: #8378ff;
+
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .contact-link small {
+            display: block;
+            color: #687183;
+            font-size: 10px;
+        }
+
+        .contact-link strong {
+            display: block;
+            color: #d4d8e1;
+            font-size: 13px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            border-top: 1px solid #1c2330;
+            padding: 25px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-content p {
+            color: #687181;
+            font-size: 12px;
+        }
+
+        .back-top {
+            color: #8075ff;
+            font-size: 12px;
+        }
+
+        /* =========================
+           SCROLL ANIMATION
+        ========================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 0.7s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .menu {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 75px;
+                left: 0;
+
+                width: 100%;
+
+                display: none;
+                flex-direction: column;
+
+                gap: 0;
+
+                background: #0b101a;
+                border-bottom: 1px solid #252d3d;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li a {
+                display: block;
+                padding: 15px 5%;
+
+                border-bottom: 1px solid #1d2430;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 55px;
+            }
+
+            .code-window {
+                max-width: 650px;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+
+            .skills {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .contact {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            section {
+                padding: 80px 0;
+            }
+
+            .hero h1 {
+                font-size: 62px;
+                letter-spacing: -3px;
+            }
+
+            .buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .about-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .skills {
+                grid-template-columns: 1fr;
+            }
+
+            .project {
+                padding: 27px;
+            }
+
+            .code {
+                padding: 20px;
+                font-size: 10px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <header>
+        <div class="container">
+            <nav>
+
+                <a href="#home" class="logo">
+                    Manish<span>.</span>
+                </a>
+
+                <div class="menu" id="menu">
+                    ☰
+                </div>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section id="home">
+
+        <div class="container hero">
+
+            <div class="hero-content reveal">
+
+                <p class="small-title">
+                    HELLO, I'M
+                </p>
+
+                <h1>
+                    Manish
+                </h1>
+
+                <h2>
+                    Software <span>Engineer</span>
+                </h2>
+
+                <p class="hero-description">
+                    I'm a passionate Software Engineer who enjoys building
+                    modern, responsive and user-friendly applications.
+                    I love solving problems and turning ideas into useful
+                    software.
+                </p>
+
+                <div class="buttons">
+
+                    <a href="#projects" class="btn btn-primary">
+                        View My Projects
+                    </a>
+
+                    <a href="#contact" class="btn btn-secondary">
+                        Contact Me
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- CODE CARD -->
+
+            <div class="code-window reveal">
+
+                <div class="window-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green-dot"></span>
+                </div>
+
+                <div class="code">
+
+                    <p>
+                        <span class="purple">const</span>
+                        developer =
+                        {
+                    </p>
+
+                    <p class="indent">
+                        <span class="blue">name:</span>
+                        <span class="green-text">'Manish'</span>,
+                    </p>
+
+                    <p class="indent">
+                        <span class="blue">role:</span>
+                        <span class="green-text">'Software Engineer'</span>,
+                    </p>
+
+                    <p class="indent">
+                        <span class="blue">skills:</span> [
+                    </p>
+
+                    <p class="indent2">
+                        <span class="green-text">'Java'</span>,
+                        <span class="green-text">'React'</span>,
+                    </p>
+
+                    <p class="indent2">
+                        <span class="green-text">'JavaScript'</span>,
+                        <span class="green-text">'SQL'</span>
+                    </p>
+
+                    <p class="indent">]</p>
+
+                    <p>};</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================= -->
+
+    <section id="about">
+
+        <div class="container">
+
+            <div class="section-heading reveal">
+
+                <p>GET TO KNOW ME</p>
+
+                <h2>
+                    About <span>Me</span>
+                </h2>
+
+            </div>
+
+
+            <div class="about">
+
+                <div class="about-text reveal">
+
+                    <h3>
+                        Passionate about building useful technology.
+                    </h3>
+
+                    <p>
+                        I'm Manish, a Software Engineer passionate about
+                        developing applications that solve real-world
+                        problems.
+                    </p>
+
+                    <p>
+                        I enjoy working with Java, JavaScript, React.js,
+                        SQL and modern web technologies to create
+                        practical and user-friendly applications.
+                    </p>
+
+                    <p>
+                        I also enjoy problem solving, learning new
+                        technologies and working effectively with others
+                        through clear communication.
+                    </p>
+
+                </div>
+
+
+                <div class="about-cards reveal">
+
+                    <div class="about-card">
+                        <div class="about-icon">💻</div>
+                        <h4>Development</h4>
+                        <p>Building modern applications and websites.</p>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="about-icon">🧠</div>
+                        <h4>Problem Solving</h4>
+                        <p>Breaking complex problems into simple solutions.</p>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="about-icon">🚀</div>
+                        <h4>Learning</h4>
+                        <p>Continuously improving my technical skills.</p>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="about-icon">🤝</div>
+                        <h4>Communication</h4>
+                        <p>Collaborating effectively with people and teams.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SKILLS
+    ========================= -->
+
+    <section id="skills">
+
+        <div class="container">
+
+            <div class="section-heading reveal">
+
+                <p>WHAT I WORK WITH</p>
+
+                <h2>
+                    My <span>Skills</span>
+                </h2>
+
+            </div>
+
+
+            <div class="skills">
+
+                <div class="skill reveal">
+                    <div class="skill-icon">☕</div>
+                    <h3>Java</h3>
+                    <p>Object-oriented programming and application development.</p>
+                </div>
+
+                <div class="skill reveal">
+                    <div class="skill-icon">&lt;/&gt;</div>
+                    <h3>HTML</h3>
+                    <p>Semantic and structured web development.</p>
+                </div>
+
+                <div class="skill reveal">
+                    <div class="skill-icon">#</div>
+                    <h3>CSS</h3>
+                    <p>Responsive layouts and modern user interfaces.</p>
+                </div>
+
+                <div class="skill reveal">
+                    <div class="skill-icon">JS</div>
+                    <h3>JavaScript</h3>
+                    <p>Interactive and dynamic web applications.</p>
+                </div>
+
+                <div class="skill reveal">
+                    <div class="skill-icon">⚛</div>
+                    <h3>React.js</h3>
+                    <p>Component-based frontend development.</p>
+                </div>
+
+                <div class="skill reveal">
+                    <div class="skill-icon">DB</div>
+                    <h3>SQL</h3>
+                    <p>Database management and data operations.</p>
+                </div>
+
+                <div class="skill reveal">
+                    <div class="skill-icon">🧩</div>
+                    <h3>Problem Solving</h3>
+                    <p>Logical thinking and practical solutions.</p>
+                </div>
+
+                <div class="skill reveal">
+                    <div class="skill-icon">💬</div>
+                    <h3>Communication</h3>
+                    <p>Clear communication and teamwork.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECTS
+    ========================= -->
+
+    <section id="projects">
+
+        <div class="container">
+
+            <div class="section-heading reveal">
+
+                <p>MY RECENT WORK</p>
+
+                <h2>
+                    Featured <span>Projects</span>
+                </h2>
+
+            </div>
+
+
+            <div class="projects">
+
+                <!-- LAWUV -->
+
+                <article class="project reveal">
+
+                    <div class="project-number">
+                        01
+                    </div>
+
+                    <p class="project-type">
+                        APPLICATION
+                    </p>
+
+                    <h3>
+                        LawUV App
+                    </h3>
+
+                    <p class="project-description">
+                        A legal-focused application designed to make
+                        legal information and services easier for users
+                        to access and manage.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+
+                </article>
+
+
+                <!-- WEATHER -->
+
+                <article class="project reveal">
+
+                    <div class="project-number">
+                        02
+                    </div>
+
+                    <p class="project-type">
+                        WEB APPLICATION
+                    </p>
+
+                    <h3>
+                        Weather App
+                    </h3>
+
+                    <p class="project-description">
+                        A responsive weather application that displays
+                        weather information using API-based data with
+                        a clean and simple interface.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">API</span>
+                    </div>
+
+                </article>
+
+
+                <!-- AI CHATBOT -->
+
+                <article class="project reveal">
+
+                    <div class="project-number">
+                        03
+                    </div>
+
+                    <p class="project-type">
+                        AI APPLICATION
+                    </p>
+
+                    <h3>
+                        AI Mental Health Chatbot
+                    </h3>
+
+                    <p class="project-description">
+                        An AI-powered conversational application designed
+                        to provide supportive conversations and general
+                        mental-wellness guidance.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">React.js</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">AI</span>
+                    </div>
+
+                </article>
+
+
+                <!-- CONTACT MANAGEMENT -->
+
+                <article class="project reveal">
+
+                    <div class="project-number">
+                        04
+                    </div>
+
+                    <p class="project-type">
+                        DATABASE APPLICATION
+                    </p>
+
+                    <h3>
+                        Contact Management System
+                    </h3>
+
+                    <p class="project-description">
+                        A contact management system for adding, updating,
+                        deleting and organizing contact information using
+                        database operations.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">Database</span>
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================= -->
+
+    <section id="contact">
+
+        <div class="container">
+
+            <div class="section-heading reveal">
+
+                <p>LET'S CONNECT</p>
+
+                <h2>
+                    Contact <span>Me</span>
+                </h2>
+
+            </div>
+
+
+            <div class="contact">
+
+                <div class="reveal">
+
+                    <h3>
+                        Let's build something great.
+                    </h3>
+
+                    <p>
+                        I'm interested in software development,
+                        interesting projects and new opportunities.
+                    </p>
+
+                    <p>
+                        Feel free to connect with me through email
+                        or GitHub.
+                    </p>
+
+                </div>
+
+
+                <div class="contact-links reveal">
+
+                    <!-- EMAIL -->
+
+                    <a
+                        href="mailto:joonmanish85@gmail.com"
+                        class="contact-link"
+                    >
+
+                        <div class="contact-icon">
+                            ✉
+                        </div>
+
+                        <div>
+                            <small>EMAIL</small>
+                            <strong>
+                                joonmanish85@gmail.com
+                            </strong>
+                        </div>
+
+                    </a>
+
+
+                    <!-- GITHUB -->
+
+                    <a
+                        href="https://github.com/mjaatoo"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="contact-link"
+                    >
+
+                        <div class="contact-icon">
+                            ◉
+                        </div>
+
+                        <div>
+                            <small>GITHUB</small>
+                            <strong>
+                                github.com/mjaatoo
+                            </strong>
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="container footer-content">
+
+            <p>
+                © 2026 Manish. Built with HTML, CSS & JavaScript.
+            </p>
+
+            <a href="#home" class="back-top">
+                Back to top ↑
+            </a>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        // Mobile menu
+
+        const menu = document.getElementById("menu");
+        const navLinks = document.getElementById("navLinks");
+
+        menu.addEventListener("click", function () {
+
+            navLinks.classList.toggle("active");
+
+            if (navLinks.classList.contains("active")) {
+                menu.innerHTML = "✕";
+            } else {
+                menu.innerHTML = "☰";
+            }
+
+        });
+
+
+        // Close menu after clicking a link
+
+        document.querySelectorAll(".nav-links a").forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                navLinks.classList.remove("active");
+
+                menu.innerHTML = "☰";
+
+            });
+
+        });
+
+
+        // Scroll reveal animation
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+        const observer =
+            new IntersectionObserver(
+                function (entries) {
+
+                    entries.forEach(function (entry) {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("active");
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        revealElements.forEach(function (element) {
+
+            observer.observe(element);
+
+        });
+
+    </script>
+
+</body>
+</html>
